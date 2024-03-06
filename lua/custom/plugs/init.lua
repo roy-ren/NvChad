@@ -1,0 +1,31 @@
+---@diagnostic disable: different-requires
+return {
+  -- overrides plugins
+  require "custom.plugs.overrides.cmp",
+  require "custom.plugs.overrides.lsp",
+  require "custom.plugs.overrides.mason",
+  require "custom.plugs.overrides.null_ls",
+  require "custom.plugs.overrides.tree",
+  require "custom.plugs.overrides.treesitter",
+  -- custom new
+  require "custom.plugs.new.better-escape",
+  require "custom.plugs.new.bqf",
+  require "custom.plugs.new.codeium",
+  require "custom.plugs.new.conform-nvim",
+  require "custom.plugs.new.crates",
+  require "custom.plugs.new.dap-ui",
+  require "custom.plugs.new.dap-virtual-text",
+  require "custom.plugs.new.dap",
+  require "custom.plugs.new.flutter",
+  require "custom.plugs.new.harpoon",
+  require "custom.plugs.new.leap",
+  require "custom.plugs.new.neodev",
+  require "custom.plugs.new.neotest",
+  require "custom.plugs.new.noice",
+  require "custom.plugs.new.nvim-lint",
+  require "custom.plugs.new.rust-tools",
+  require "custom.plugs.new.rust",
+  require "custom.plugs.new.surround",
+  require "custom.plugs.new.trouble",
+  require "custom.plugs.new.xocdebuild-nvim",
+}
