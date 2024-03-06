@@ -6,13 +6,20 @@ local M = {
     "stevearc/dressing.nvim",
     "neovim/nvim-lspconfig",
   },
-  config = true,
-  -- config = function()
-  --   require("flutter-tools").setup {
-  --     on_attach = require("plugins.configs.lspconfig").on_attach,
-  --     capabilities = require("plugins.configs.lspconfig").capabilities,
-  --   }
-  -- end,
+  opts = function()
+    local on_attach = require("plugins.configs.lspconfig").on_attach
+    local capabilities = require("plugins.configs.lspconfig").capabilities
+
+    return {
+      lsp = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+      },
+    }
+  end,
+  config = function(_, opts)
+    require("flutter-tools").setup(opts)
+  end,
 }
 
 return M
