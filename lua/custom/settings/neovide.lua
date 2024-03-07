@@ -1,23 +1,19 @@
 local M = {}
 
--------------------------------------- globals -----------------------------------------
 M.setup = function()
-  ---@diagnostic disable-next-line: undefined-global
   local g = vim.g
+  g.neovide_transparency = 0.5
+  g.transparency = 0
+  g.neovide_window_blurred = true
+  g.neovide_floating_blur_amount_x = 1.0
+  g.neovide_floating_blur_amount_y = 1.0
+  g.neovide_floating_shadow = true
+  g.neovide_floating_z_height = 10
+  g.neovide_light_angle_degrees = 45
+  g.neovide_light_radius = 5
 
-  -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
-  -- g.neovide_transparency = 0.7
-  -- g.transparency = 0.7
-  -- -- Helper function for transparency formatting
-  -- local alpha = function()
-  --   return string.format("%x", math.floor(255 * (g.transparency or 0.8)))
-  -- end
-  -- g.neovide_background_color = "#0f1117" .. alpha()
-  g.neovide_floating_blur_amount_x = 25.0
-  g.neovide_floating_blur_amount_y = 25.0
   g.neovide_scroll_animation_length = 0.3
   g.neovide_hide_mouse_when_typing = true
-
   -- g.neovide_theme = "auto"
 
   g.neovide_refresh_rate = 60

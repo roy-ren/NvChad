@@ -1,6 +1,5 @@
 local M = {}
 
--------------------------------------- autocmd ------------------------------------------
 M.setup = function()
   local autocmd = vim.api.nvim_create_autocmd
 
