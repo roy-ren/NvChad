@@ -3,7 +3,7 @@ local M = {}
 M.setup = function()
   local opt = vim.opt
 
-  vim.o.guifont = "FiraCode_Nerd_Font:h25"
+  vim.o.guifont = "FiraCode_Nerd_Font:h22"
   -- vim.o.guifont = "D2CodingLigature_Nerd_Font:h19"
   -- vim.o.guifont = "FantasqueSansM_Nerd_Font:h19"
   -- vim.o.guifont = "SauceCodePro_Nerd_Font:h19"
