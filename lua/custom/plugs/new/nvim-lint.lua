@@ -3,6 +3,7 @@ local searchedForConfig = false
 
 local function find_config()
   if searchedForConfig then
+    print("find_config 1", cachedConfig)
     return cachedConfig
   end
 
@@ -22,6 +23,7 @@ local function find_config()
   searchedForConfig = true
 
   if vim.v.shell_error ~= 0 then
+    print("find_config 2", nil)
     return nil
   end
 
@@ -33,6 +35,7 @@ local function find_config()
     cachedConfig = string.match(swiftlintConfigs[1], "^%s*(.-)%s*$")
   end
 
+  print("find_config 3", cachedConfig)
   return cachedConfig
 end
 
@@ -55,7 +58,7 @@ local function setup_swiftlint()
       "--use-alternative-excluding",
       "--config",
       function()
-        return find_config() or os.getenv "HOME" .. "/.config/nvim/.swiftlint.yml"
+        return find_config() or os.getenv "HOME" .. "/.swiftlint.yml"
       end,
     },
     stream = "stdout",

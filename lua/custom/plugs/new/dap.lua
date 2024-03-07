@@ -33,9 +33,9 @@ return {
         type = "flutter",
         request = "launch",
         name = "Launch flutter",
-        dartSdkPath = home_dir .. "development/flutter" .. flutter_version .. "flutter/bin/dart", -- ensure this is correct
-        flutterSdkPath = home_dir .. "development/flutter" .. flutter_version .. "flutter/bin/flutter", -- ensure this is correct
-        program = "${workspaceFolder}/lib/main.dart", -- ensure this is correct
+        dartSdkPath = home_dir .. "dev_env/flutter" .. flutter_version .. "flutter/bin/dart",       -- ensure this is correct
+        flutterSdkPath = home_dir .. "dev_env/flutter" .. flutter_version .. "flutter/bin/flutter", -- ensure this is correct
+        program = "${workspaceFolder}/lib/main.dart",                                               -- ensure this is correct
         cwd = "${workspaceFolder}",
         toolArgs = { "-d", "E0AF3AF9-12E6-4919-A318-E8BC844E31CF" },
       },
@@ -59,7 +59,7 @@ return {
       type = "server",
       port = "13000",
       executable = {
-        command = os.getenv "HOME" .. "/.nvim_lsp_env/codelldb/extension/adapter/codelldb",
+        command = home_dir .. "/dev_env/codelldb/extension/adapter/codelldb",
         args = {
           "--port",
           "13000",
