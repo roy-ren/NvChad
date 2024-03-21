@@ -11,19 +11,72 @@ local servers = {
   "tsserver",
   "clangd",
   "ruby_ls",
-  -- "sourcekit",
   "lua_ls",
   "yamlls",
+  "tailwindcss",
 }
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
 local util = require "lspconfig/util"
+
+for _, lsp in ipairs(servers) do
+  if "tsserver" == lsp then
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = function(...)
+        return util.root_pattern ".git" (...)
+      end,
+      single_file_support = false,
+      settings = {
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "literal",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = false,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+        javascript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+      },
+    }
+  elseif "tailwindcss" then
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = function(...)
+        return util.root_pattern ".git" (...)
+      end,
+    }
+  elseif "yamlls" then
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        yaml = {
+          keyOrdering = false,
+        },
+      },
+    }
+  else
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
+end
 
 lspconfig["sourcekit"].setup {
   on_attach = on_attach,

@@ -15,6 +15,14 @@ local M = {
       -- yaml
       "yamllint",
       "yaml-language-server",
+
+      -- web
+      "selene",
+      "shellcheck",
+      "shfmt",
+      "tailwindcss-language-server",
+      "typescript-language-server",
+      "css-lsp",
     },
   },
 }
