@@ -25,7 +25,13 @@ end
 
 local util = require "lspconfig/util"
 
-lspconfig["sourcekit"].setup {
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" },
+}
+
+lspconfig.sourcekit.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = {

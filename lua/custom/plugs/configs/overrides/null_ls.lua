@@ -10,5 +10,8 @@ null_ls.setup {
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.dart_format,
     null_ls.builtins.formatting.yamlfmt,
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.diagnostics.mypy,
+    null_ls.builtins.diagnostics.ruff,
   },
 }

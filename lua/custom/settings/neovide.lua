@@ -2,11 +2,11 @@ local M = {}
 
 M.setup = function()
   local g = vim.g
-  g.neovide_transparency = 0.5
+  g.neovide_transparency = 0.65
   g.transparency = 0
   g.neovide_window_blurred = true
-  g.neovide_floating_blur_amount_x = 1.0
-  g.neovide_floating_blur_amount_y = 1.0
+  g.neovide_floating_blur_amount_x = 15.0
+  g.neovide_floating_blur_amount_y = 15.0
   g.neovide_floating_shadow = true
   g.neovide_floating_z_height = 10
   g.neovide_light_angle_degrees = 45

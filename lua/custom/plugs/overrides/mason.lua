@@ -15,6 +15,12 @@ local M = {
       -- yaml
       "yamllint",
       "yaml-language-server",
+
+      -- python
+      "mypy",
+      "ruff",
+      "black",
+      "pyright",
     },
   },
 }
